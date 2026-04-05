@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر PC Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- القائمة الجانبية -->
+    <nav class="sidebar">
+        <h2>PC Store</h2>
+        <ul>
+            <li onclick="showPage('home')">🏠 الرئيسية</li>
+            <li onclick="showPage('profile')">👤 الملف الشخصي</li>
+            <li onclick="showPage('cart')">🛒 السلة</li>
+            <li onclick="showPage('tracking')">📦 تتبع الطلب</li>
+            <li onclick="showPage('address')">📍 العنوان الوطني</li>
+            <li onclick="showPage('settings')">⚙️ الإعدادات</li>
+        </ul>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="content"><section id="home" class="page active">
+    <h1>متجر قطع الـ PC</h1>
+<!-- شريط البحث -->
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="ابحث عن قطعة PC (مثلاً: RTX, Intel...)" onkeyup="searchProduct()">
+    <span class="search-icon">🔍</span>
+</div>
+
+
+
+    <!-- أزرار الأقسام -->
+    <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterProduct('all')">الكل</button>
+        <button class="filter-btn" onclick="filterProduct('cpu')">المعالجات</button>
+        <button class="filter-btn" onclick="filterProduct('gpu')">الكروت</button>
+        <button class="filter-btn" onclick="filterProduct('cooler')">المبردات</button>
+    </div>
+
+    <div class="product-grid" id="product-grid">
+        <!-- قسم المعالجات -->
+        <div class="product-card cpu">
+            <img src="download (1).webp">
+            <h3>Intel i7-13700K</h3>
+            <p>1,600 ريال</p>
+            <button onclick="addToCart('i7-13700K', 1600)">إضافة للسلة</button>
+        </div>
+        <div class="product-card cpu">
+            <img src="download (1).webp">
+            <h3>Intel i7-13700K</h3>
+            <p>1,600 ريال</p>
+            <button onclick="addToCart('i7-13700K', 1600)">إضافة للسلة</button>
+        </div>
+        </div>
+        <div class="product-card cpu">
+            <img src="download (1).webp">
+            <h3>Intel i7-13700K</h3>
+            <p>1,600 ريال</p>
+            <button onclick="addToCart('i7-13700K', 1600)">إضافة للسلة</button>
+        </div>
+
+        <!-- قسم الكروت -->
+        <div class="product-card gpu">
+            <img src="download.webp">
+            <h3>RTX 4070 Ti</h3>
+            <p>3,200 ريال</p>
+            <button onclick="addToCart('RTX 4070 Ti', 3200)">إضافة للسلة</button>
+        </div>
+         <div class="product-card gpu">
+            <img src="download.webp">
+            <h3>RTX 4070 Ti</h3>
+            <p>3,200 ريال</p>
+            <button onclick="addToCart('RTX 4070 Ti', 3200)">إضافة للسلة</button>
+        </div>
+
+        <!-- قسم المبردات -->
+        <div class="product-card cooler">
+            <img src="Cooler.webp">
+            <h3>Corsair H150i</h3>
+            <p>800 ريال</p>
+            <button onclick="addToCart('Corsair Cooler', 800)">إضافة للسلة</button>
+        </div>
+         <div class="product-card cooler">
+            <img src="cooler2.jpeg">
+            <h3>Corsair H150i</h3>
+            <p>800 ريال</p>
+            <button onclick="addToCart('Corsair Cooler', 800)">إضافة للسلة</button>
+        </div>
+        
+        <!-- أضف المزيد هنا مع تغيير الكلاس (cpu, gpu, cooler) -->
+    </div>
+</section>
+
+
+        <!-- صفحة السلة -->
+        <section id="cart" class="page">
+            <h1>سلة المشتريات</h1>
+            <div id="cart-items">السلة فارغة حالياً.</div>
+        </section>
+
+        <!-- الملف الشخصي -->
+        <section id="profile" class="page">
+            <h1>ملفي الشخصي</h1>
+            <div class="card">
+                <p><strong>الاسم:</strong> أحمد محمد</p>
+                <p><strong>البريد:</strong> ahmed@example.com</p>
+            </div>
+        </section>
+
+        <!-- تتبع الطلب -->
+        <section id="tracking" class="page">
+            <h1>تتبع طلبك</h1>
+            <div class="tracking-status">
+                <p>حالة الطلب: <span style="color: green;">قيد التوصيل</span></p>
+                <div class="progress-bar"></div>
+            </div>
+        </section>
+
+        <!-- العنوان الوطني -->
+        <section id="address" class="page">
+            <h1>العنوان الوطني</h1>
+            <form class="card">
+                <input type="text" placeholder="رقم المبنى">
+                <input type="text" placeholder="اسم الشارع">
+                <input type="text" placeholder="الرمز البريدي">
+                <button type="button">حفظ العنوان</button>
+            </form>
+        </section>
+
+        <!-- الإعدادات -->
+        <section id="settings" class="page">
+            <h1>الإعدادات</h1>
+            <label><input type="checkbox"> تفعيل التنبيهات</label><br><br>
+            <label><input type="checkbox"> الوضع الليلي</label>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
