@@ -1,0 +1,134 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #f4f7f6;
+}
+
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar li {
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #34495e;
+}
+.sidebar li:hover { background: #34495e; }
+
+.content {
+    margin-right: 270px;
+    padding: 40px;
+    width: 100%;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+.product-grid { display: flex; gap: 20px; }
+.product-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-card img { width: 150px; border-radius: 8px; }
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    display: block;
+}
+
+button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.filter-buttons {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    background: #ecf0f1;
+    color: #2c3e50;
+    border: 2px solid #bdc3c7;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* حركة بسيطة عند إخفاء المنتجات */
+.product-card {
+    transition: transform 0.3s, opacity 0.3s;
+}
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #7f8c8d;
+}
+.badge {
+    background: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    position: absolute;
+    margin: 10px;
+}
+
+.product-card {
+    position: relative; /* ضروري لظهور التاج (Badge) فوق الكرت */
+}

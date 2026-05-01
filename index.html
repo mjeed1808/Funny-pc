@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر PC Pro - احترافية في عالم الكمبيوتر</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <!-- القائمة الجانبية -->
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>PC Store</h2>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item active" onclick="showPage('home')">🏠 الرئيسية</li>
+            <li class="nav-item" onclick="showPage('profile')">👤 الملف الشخصي</li>
+            <li class="nav-item" onclick="showPage('cart')">🛒 السلة <span id="cart-count">0</span></li>
+            <li class="nav-item" onclick="showPage('tracking')">📦 تتبع الطلب</li>
+            <li class="nav-item" onclick="showPage('address')">📍 العنوان الوطني</li>
+            <li class="nav-item" onclick="showPage('settings')">⚙️ الإعدادات</li>
+        </ul>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="content">
+        
+        <!-- صفحة المتجر الرئيسية -->
+        <section id="home" class="page active">
+            <header class="page-header">
+                <h1>متجر قطع الـ PC</h1>
+                <!-- شريط البحث -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="ابحث عن قطعة PC (مثلاً: RTX, Intel...)" onkeyup="searchProduct()">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </header>
+
+            <!-- أزرار الأقسام -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProduct('all')">الكل</button>
+                <button class="filter-btn" onclick="filterProduct('cpu')">المعالجات</button>
+                <button class="filter-btn" onclick="filterProduct('gpu')">الكروت</button>
+                <button class="filter-btn" onclick="filterProduct('cooler')">المبردات</button>
+            </div>
+
+            <div class="product-grid" id="product-grid">
+                <!-- قسم المعالجات -->
+                <article class="product-card cpu">
+                    <div class="badge">معالج</div>
+                    <img src="img/Intel i7-13700K.webp" alt="Intel i7-13700K">
+                    <h3>Intel i7-13700K</h3>
+                    <p class="price">1,600 ريال</p>
+                    <button class="add-btn" onclick="addToCart('i7-13700K', 1600)">إضافة للسلة</button>
+                </article>
+
+                 <article class="product-card cpu">
+                    <div class="badge">معالج</div>
+                    <img src="img/i9-14900K.jpg" alt="Intel i9-14900K">
+                    <h3>Intel i7-13700K</h3>
+                    <p class="price">1,600 ريال</p>
+                    <button class="add-btn" onclick="addToCart('i7-13700K', 1600)">إضافة للسلة</button>
+                </article>
+
+                <!-- قسم الكروت -->
+                <article class="product-card gpu">
+                    <div class="badge">كارت شاشة</div>
+                    <img src="img/download.webp" alt="RTX 4070 Ti">
+                    <h3>RTX 4070 Ti</h3>
+                    <p class="price">3,200 ريال</p>
+                    <button class="add-btn" onclick="addToCart('RTX 4070 Ti', 3200)">إضافة للسلة</button>
+                </article>
+
+                <article class="product-card gpu">
+                    <div class="badge">كارت شاشة</div>
+                    <img src="img/download.webp" alt="RTX 4070 Ti">
+                    <h3>RTX 4070 Ti</h3>
+                    <p class="price">3,200 ريال</p>
+                    <button class="add-btn" onclick="addToCart('RTX 4070 Ti', 3200)">إضافة للسلة</button>
+                </article>
+
+                <!-- قسم المبردات -->
+                <article class="product-card cooler">
+                    <div class="badge">مبرد</div>
+                    <img src="img/Cooler.webp" alt="Corsair H150i">
+                    <h3>Corsair H150i</h3>
+                    <p class="price">800 ريال</p>
+                    <button class="add-btn" onclick="addToCart('Corsair Cooler', 800)">إضافة للسلة</button>
+                
+                </article>
+                <article class="product-card cooler">
+                    <div class="badge">مبرد</div>
+                    <img src="img/Cooler.webp" alt="Corsair H150i">
+                    <h3>Corsair H150i</h3>
+                    <p class="price">800 ريال</p>
+                    <button class="add-btn" onclick="addToCart('Corsair Cooler', 800)">إضافة للسلة</button>
+                
+                </article>
+            </div>
+        </section>
+
+        <!-- صفحة السلة -->
+        <section id="cart" class="page">
+            <h1>سلة المشتريات</h1>
+            <div class="card" id="cart-container">
+                <div id="cart-items">السلة فارغة حالياً.</div>
+                <hr>
+                <div id="cart-total">إجمالي المبلغ: 0 ريال</div>
+                <button class="checkout-btn" onclick="checkout()">إتمام الشراء</button>
+            </div>
+        </section>
+
+        <!-- باقي الأقسام (بقيت كما هي مع إضافة كلاسات CSS موحدة) -->
+        <section id="profile" class="page">
+            <h1>ملفي الشخصي</h1>
+            <div class="card info-card">
+                <p><strong>الاسم:</strong> أحمد محمد</p>
+                <p><strong>البريد:</strong> ahmed@example.com</p>
+            </div>
+        </section>
+
+        <section id="tracking" class="page">
+            <h1>تتبع طلبك</h1>
+            <div class="card tracking-card">
+                <p>حالة الطلب: <span class="status-text">قيد التوصيل</span></p>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 65%;"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
